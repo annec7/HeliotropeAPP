@@ -31,10 +31,10 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="container" style="margin-top: 40px; background: #F0FFFF;">
+	<div class="container" style="margin-top: 40px; background: #F0FFFF;width: 1000px;">
 		<h2
 			style="font-family: georgia; font-weight: bold; font-style: italic;">My
-			Profil</h2>
+			Profile</h2>
 		<hr>
 
 		<%
@@ -47,11 +47,11 @@
 				UserBean ub = (UserBean) userProfil.next(); */
 				
 			EleveInfo eli = new EleveInfo();
-			eli.showEleveProfil(userid);
-			UserBean ub = new UserBean();
+			UserBean ub = eli.showEleveProfil(userid);
 				
 		%>
-	<%-- 	<%
+		<%=userid %>
+		<%-- <%
 		int i  = 0;
 			EleveInfo eli = new EleveInfo();
 			ArrayList<UserBean> alist1 = eli.showEleveProfil();
@@ -110,7 +110,7 @@
 				<label for="txtDate" class="col-sm-2 control-label">Tuteur</label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" id="txtDate" name="tuteur"
-						readonly="readonly"<%-- value="<%=ub.getTuteur()%> --%>"></input>
+						readonly="readonly"<%-- value="<%=ub.getTuteur()%> --%>></input>
 				</div>
 			</div>
 

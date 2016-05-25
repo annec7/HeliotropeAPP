@@ -11,7 +11,7 @@
 <title>Page Eleve</title>
 <!-- Bootstrap -->
 <link href="../css/bootstrap.min.css" rel="stylesheet">
-
+<link rel="stylesheet" type="text/css" href="../css/PageEleve.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
@@ -33,11 +33,6 @@
 <body>
 	<nav class="navbar navbar-default">
 	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href=""><img style="height: 38px;"
-				alt="Isep" src="../image/Heliotrope.jpg"></a>
-		</div>
-
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
@@ -45,71 +40,57 @@
 				<li class="active"><h3>
 						Welcome
 						<%=request.getParameter("nom")%><br>
-						<%-- <%
-							UserInfo usfo1 = new UserInfo();
-							String userid1 = usfo1.getUserId(request.getParameter("nom"));
+						<%
+							UserInfo usfo = new UserInfo();
+							String userid = usfo.getUserId(request.getParameter("nom"));
 						%>
-						<%=userid1%> --%>
 					</h3></li>
 				<li>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</li>
 			</ul>
-			
+
 			<ul class="nav navbar-nav navbar-right">
 				<li><h4>
 						<a href="/Heli/pages/login_E.jsp">Login out! Welcome back! </a>
 					</h4></li>
 			</ul>
 		</div>
-		<!-- /.navbar-collapse -->
 	</div>
-	<!-- /container fluid --> </nav>
-
+	</nav>
 	<div class="container">
 		<div style="width: 1000px; height: 600px; background: #F0FFFF;">
-			<form
-				action="/Heli/pages/PageEleveProfil.jsp"
-				method="post">
-				<button type="submit" class="btn btn-default btn-lg">
-					<img alt="Profile" src="../image/Page_eleve001.jpg"
-						style="width: 100px; height: 100px;">
-				</button>
-			</form>
-			<form
-				action="/Heli/pages/PageEleveSkill.jsp"
-				method="post">
-				<button type="submit" class="btn btn-default btn-lg">
-					<img alt="Skill" src="../image/Page_eleve002.jpg"
-						style="width: 100px; height: 100px;">
-				</button>
-			</form>
-			<form>
-				<button type="submit" class="btn btn-default btn-lg">
-					<img alt="Profile" src="../image/Page_eleve003.jpg"
-						style="width: 100px; height: 100px;">
-				</button>
-			</form>
-			<form>
-				<button type="submit" class="btn btn-default btn-lg">
-					<img alt="Profile" src="../image/Page_eleve004.jpg"
-						style="width: 100px; height: 100px;">
-				</button>
-			</form>
+			<ul id="faceul">
+				<li><form action="/Heli/pages/PageEleveProfil.jsp?userid=<%=userid %>"
+						method="post">
+						<button class="btn btn-success" style="height: 65px;width:150px;">
+							<strong>Show My Profile</strong>
+						</button>
+					</form></li>
+				<li><form action="/Heli/pages/PageEleveSkill.jsp" method="post">
+						<button class="btn btn-success" style="height: 65px;width:150px;">
+							<strong>Show My Skill</strong>
+						</button>
+					</form></li>
+				<li>
+					<form>
+						<button class="btn btn-success" style="height: 65px;width:150px;">
+							<strong>Show My File</strong>
+						</button>
+					</form>
+				</li>
+				<li>
+					<form>
+						<button class="btn btn-success" style="height: 65px;width:150px;">
+							<strong>Show My File</strong>
+						</button>
+					</form>
+				</li>
+			</ul>
 		</div>
-
-
-
-
-
-
-
-
 		<div class="breadcrumb" style="font-size: 20px;">
 			<a href="AddUser.jsp"><span class="glyphicon glyphicon-plus"
 				aria-hidden="true"></span> Ajouter un novel utilisateur</a>
 		</div>
 	</div>
-
-
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

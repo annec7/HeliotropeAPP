@@ -25,7 +25,6 @@ public class UserInfo {
 				connexion.close();
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}

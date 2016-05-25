@@ -50,30 +50,7 @@ public class EleveInfo {
 	}
 
 	// Show Student's profile
-	public ArrayList<UserBean> showEleveProfilID(String userid) {
-		ArrayList<UserBean> alist = new ArrayList<UserBean>();
-		try {
-			connexion = new DBaccess().getConnexion();
-			statement = connexion.createStatement();
-			resultat = statement.executeQuery("SELECT * FROM table_utilisateur1 where userid='"+userid+"'");
-			while (resultat.next()) {
-				UserBean ub = new UserBean();
-				ub.setUserid(resultat.getInt("userid"));
-				ub.setNom(resultat.getString("nom"));
-				ub.setPrenom(resultat.getString("prenom"));
-				ub.setMail(resultat.getString("mail"));
-				ub.setGroupe(resultat.getString("groupe"));
-				ub.setStatut(resultat.getString("statut"));
-
-				alist.add(ub);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			this.close();
-		}
-		return alist;
-	}
+	
 	public ArrayList<UserBean> showEleveProfil() {
 		ArrayList<UserBean> alist = new ArrayList<UserBean>();
 		try {
@@ -98,26 +75,26 @@ public class EleveInfo {
 		}
 		return alist;
 	}
-	public void showEleveProfil(String userid) {
+	public UserBean showEleveProfil(String userid) {
+		UserBean ub = new UserBean();
 		try {
 			connexion = new DBaccess().getConnexion();
 			statement = connexion.createStatement();
 			resultat = statement.executeQuery("SELECT * FROM table_utilisateur1 where userid='"+userid+"'");
 			while (resultat.next()) {
-				UserBean ub = new UserBean();
 				ub.setUserid(resultat.getInt("userid"));
 				ub.setNom(resultat.getString("nom"));
 				ub.setPrenom(resultat.getString("prenom"));
 				ub.setMail(resultat.getString("mail"));
 				ub.setGroupe(resultat.getString("groupe"));
 				ub.setStatut(resultat.getString("statut"));
-				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			this.close();
 		}
+		return ub;
 	}
 
 	
